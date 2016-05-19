@@ -130,6 +130,8 @@ class _LazyString(object):
         return len(self.value)
 
     def __str__(self):
+        if isinstance(self.value, unicode):
+            return str(self.value.encode('utf-8'))
         return str(self.value)
 
     def __unicode__(self):
